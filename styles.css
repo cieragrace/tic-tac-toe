@@ -1,0 +1,15 @@
+* {
+  /* outline: 1px solid black */
+}
+
+body {
+  background-image: url(file:///Users/cieragrace/Desktop/tictac6.webp);
+  background-size: 100%;
+  margin: 0;
+}
+
+
+.player {
+  font-size: 60px;
+  color: #ff00ff;
+}
