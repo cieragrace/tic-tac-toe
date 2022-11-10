@@ -1,5 +1,5 @@
 * {
-  outline: 3px solid white;
+  /* outline: 3px solid white; */
   font-family: 'press_start_2pregular';
 }
 
@@ -14,7 +14,7 @@ body {
 header {
   display:flex;
   justify-content: space-evenly;
-  height: 300px;
+  height: 230px;
   padding: 0;
 }
 
@@ -35,13 +35,28 @@ header {
 }
 
 .player-score {
-  font-size: 50px;
-  color: white;
+  font-size: 60px;
+  color: #D8BFD8;
   width: 300px;
 }
-h1 {
-  font-size: 60px;
+
+.header-container {
+  display:flex;
+  flex-direction: column;
+	justify-content: flex-start;
+	text-align: center;
+  width: 500px;
 }
+
+ h1 {
+   color: #00FFFF;
+   font-size: 70px;
+ }
+
+ .its-your-turn {
+   color: #D8BFD8;
+   font-size: 60px;
+ }
 
 main {
   display: flex;
@@ -56,13 +71,68 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
+  margin-bottom: 100px;
 }
 
-.box {
-  width:30%;
-  height: 30%;
+.box-1 {
+  border-style: none solid solid none;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
 }
-.total-grid{
 
+.box-2 {
+  border-style: none solid solid solid;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-3 {
+  border-style: none none solid none;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-4 {
+  border-style: solid solid solid none;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-5 {
+  border-style: solid solid solid solid;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-6 {
+  border-style: solid none solid solid;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-7 {
+  border-style: solid solid none none;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-8 {
+  border-style: solid solid none solid;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.box-9 {
+  border-style: solid none none solid;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
 }
