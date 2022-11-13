@@ -15,32 +15,65 @@
 // var Box7 = document.querySelector('.box-7')
 // var Box8 = document.querySelector('.box-8')
 // var Box9 = document.querySelector('.box-9')
+// var resetButton = document.querySelector('.reset-button')
 
 // -------> event listeners <-------
+window.addEventListener('load, startGame')
+resetButton.addEventListener('click', startGame)
+// ------> global variables <------
 
 // -------> functions <-------
 
-// need reset button
-// do I need a load page event listener?
-// do the 9 tiles need to be 9 different classes? 
+function startGame() {
+gameBoardSpaces = ["", "", "", "", "", "", "", "", "",]
+}
+// need reset button -- use startGame function
+// do I need a load page event listener? -- done
+// do the 9 tiles need to be 9 different classes? --keep for now
 
 // start with X, first tile is X
 // 0 is second
-// event listeners on all tiles
+// event listeners on all tiles?
 // input on tiles?
 
 // if winning three positions are marked 'true' x or o wins
+function checkForWinner() {
+
+}
+//ALSO IN GAME CLASS
 // when there is a winner we want the score to go up 1 on winner side
+increaseWins() {
+
+}
+//IN PLAYER CLASS
 // we also will need banner to pop up to say who wins
 // change "It's your turn" to WINS
 // have pop up that announces winner 
+function winningBanner() {
+
+}
 //Player 1, YOU WIN
 //PLAYER 2, YOU WIN
+function announceWinner() {
+
+}
 //DRAW
 //DRAW scores do not change
+function announceDraw() {
+
+}
+
+function drawBanner() {
+
+}
+// No Winner! Try Again
+function timeOut() {
+
+}
 //time out to reset page 
 
 // if box && box && box are true = winner 
+
 
 //board layout below
     // [1][2][3]
