@@ -1,7 +1,7 @@
 class Game {
-    constructor(){
-    var player1 = new Player(this.id: player1, this.symbol: 'X', this.wins: 0)
-    var player2 = new Player(this.id: player2, this.symbol: 'O', total.wins: 0) 
+    constructor(id, symbol, wins){
+    var player1 = new Player(this.id: 'player1', this.symbol: 'X', this.wins: 0)
+    var player2 = new Player(this.id: 'player2', this.symbol: 'O', this.wins: 0) 
    }
    // a way to keep track of data of game board
    var gameBoard;
