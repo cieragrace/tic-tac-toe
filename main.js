@@ -5,57 +5,89 @@
 // var headContainer = document.querySelector('.head-container')
 // var playerBanner = document.querySelector('.player-banner')
 // var announceBanner = document.querySelector('.its-your-turn')
+// var box1 = document.querySelector('#box1')
+// var box2 = document.querySelector('#box2')
+// var box3 = document.querySelector('#box3')
+// var box4 = document.querySelector('#box4')
+// var box5 = document.querySelector('#box5')
+// var box6 = document.querySelector('#box6')
+// var box7 = document.querySelector('#box7')
+// var box8 = document.querySelector('#box8')
+// var box9 = document.querySelector('#box9')
 var boxes = document.querySelectorAll('.box')
-var box1 = document.querySelector('#box1')
-var box2 = document.querySelector('#box2')
-var box3 = document.querySelector('#box3')
-var box4 = document.querySelector('#box4')
-var box5 = document.querySelector('#box5')
-var box6 = document.querySelector('#box6')
-var box7 = document.querySelector('#box7')
-var box8 = document.querySelector('#box8')
-var box9 = document.querySelector('#box9')
-var resetButton = document.querySelector('.reset-button')
+boxes = Array.from(boxes)
+console.log(boxes)
+var resetButton = document.querySelector('.resetButton')
 
 // -------> event listeners <-------
-window.addEventListener('load', startGame)
-resetButton.addEventListener('click', startGame)
-boxes.addEventListener('click', executeTurn)
+window.addEventListener('load', startGame);
+resetButton.addEventListener('click', startGame);
+boxes.forEach(function(box){
+    box.addEventListener('click', function(){
+        box.innerText = currentTurn
+    })
+})
+// boxes.forEach((box,index) => {
+//     box.addEventListener('click', () => executeTurn(box, index))
+// })
+// boxes.addEventListener('click', executeTurn);
 
 // ------> global variables <------
-var whosTurn = 'X'
+//board layout below
+    // [0][1][2]
+    // [3][4][5]
+    // [6][7][8]
+//X goes first
+var currentTurn = 'X'
+var count = 0
 var gameBoardSpaces = ["", "", "", "", "", "", "", "", "",]
 var gameOn = false
-var winningCombos = [
-[0][1][2],
-[3][4][5],
-[6][7][8],
-[0][3][6],
-[1][4][7],
-[2][5][8],
-[0][4][8],
-[2][4][6],
+var winningCombos = 
+[
+[0, 1, 2],
+[3, 4, 5],
+[6, 7, 8],
+[0, 3, 6],
+[1, 4, 7],
+[2, 5, 8],
+[0, 4, 8],
+[2, 4, 6],
 ]
-// or
-// [0, 1, 2],
-// [3, 4, 5],
-// [6, 7, 8],
-// [0, 3, 6],
-// [1, 4, 7],
-// [2, 5, 8],
-// [0, 4, 8],
-// [2, 4, 6],
+
 // -------> functions <-------
 
-function startGame() {
-gameBoardSpaces = ["", "", "", "", "", "", "", "", "",];
-    boxes.forEach(box => box.addEventListener('click', executeTurn))
-}
-// use with reset button as well
+// function createGameGrid() {
+//     boxes.forEach(function(box){
+//         box.addEventListener('click', executeTurn)
+//     }
+// }
+// function displayOnClick() {
+//     boxes.forEach((box => box.addEventListener('click', () => {
+//     if (whosTurn === X) {
+//         whosTurn = "O"
+//         box.innerText = "X"
+//         box.disbaled = true
+//     } else {
+//         whosTurn = "0"
+//         box.InnerText = 'O'
+//         box.disbaled = true
+//     }
+//     })
+// }
 
-function executeTurn(player) {
+// startGame() 
+
+function startGame() {
+    gameOn = true
+    boxes.forEach(box => box.addEventListener('click', executeTurn))
+    console.log('hi')
+}
+// // use with reset button as well
+
+function executeTurn() {
+    var boxID = event.target.id
     if (isBoxOpen === true && gameOn === true) {
-        boxes.innerText = player.symbol
+        box.innerHTML = "X"
     }
 }
 function isBoxOpen() {
@@ -66,8 +98,8 @@ function isBoxOpen() {
 }
 
 // function changePlayer() { // render?
-    var currentPlayer = new Player(id, symbol, wins)
-     currentPlayer = 'X' ? 'O' : 'X';
+    // var currentPlayer = new Player(id, symbol, wins)
+    //  currentPlayer = 'X' ? 'O' : 'X';
 
 // }
     //if the tile is clicked on and is not already marked 
@@ -106,6 +138,10 @@ function isBoxOpen() {
 //DRAW
 //DRAW scores do not change
 // function announceDraw() {
+//     count += 1;
+// (if count === 9) {
+
+// }
 
 // }
 
@@ -119,10 +155,3 @@ function isBoxOpen() {
 // }
 //time out to reset page 
 
-// if box && box && box are true = winner 
-
-
-//board layout below
-    // [0][1][2]
-    // [3][4][5]
-    // [6][7][8]
