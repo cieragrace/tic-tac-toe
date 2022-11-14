@@ -14,14 +14,14 @@ body {
 header {
   display:flex;
   justify-content: space-evenly;
-  height: 230px;
+  height: 200px;
   padding: 0;
+  margin-bottom: 0;
 }
 
 .player-container {
   display:flex;
   flex-direction: column;
-  flex-wrap: nowrap;
 	justify-content: flex-start;
 	text-align: center;
 }
@@ -50,7 +50,7 @@ header {
 
  h1 {
    color: #00FFFF;
-   font-size: 70px;
+   font-size: 25px;
  }
 
  .its-your-turn {
@@ -60,10 +60,12 @@ header {
 
 main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
-.total-grid {
+.grid-container {
   width: 500px;
   height: 500px;
   display: flex;
@@ -71,10 +73,24 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
-.box-1 {
+.box {
+  border-style: none solid solid none;
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+  font-size: 30px;
+}
+
+.reset-button {
+  height: 50px;
+  width: 150px;
+  color: magenta;
+  margin-top: 10px;
+}
+/* .box-1 {
   border-style: none solid solid none;
   border: 3px solid white;
   width: 150px;
@@ -135,4 +151,4 @@ main {
   border: 3px solid white;
   width: 150px;
   height: 150px;
-}
+} */
