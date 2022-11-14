@@ -14,22 +14,29 @@
 // var box7 = document.querySelector('#box7')
 // var box8 = document.querySelector('#box8')
 // var box9 = document.querySelector('#box9')
+
+
 var boxes = document.querySelectorAll('.box')
 boxes = Array.from(boxes)
 console.log(boxes)
+
 var resetButton = document.querySelector('.resetButton')
 
+var currentTurn = 'X'
+
 // -------> event listeners <-------
-window.addEventListener('load', startGame);
-resetButton.addEventListener('click', startGame);
+window.addEventListener('load', clearBoard);
+resetButton.addEventListener('click', clearBoard);
+
 boxes.forEach(function(box){
-    box.addEventListener('click', function(){
-        box.innerText = currentTurn
+    box.addEventListener('click', function() {
+    
+    renderTurn();
+    changePlayer();
+    console.log('hello')
     })
-})
-// boxes.forEach((box,index) => {
-//     box.addEventListener('click', () => executeTurn(box, index))
-// })
+
+
 // boxes.addEventListener('click', executeTurn);
 
 // ------> global variables <------
@@ -38,11 +45,9 @@ boxes.forEach(function(box){
     // [3][4][5]
     // [6][7][8]
 //X goes first
-var currentTurn = 'X'
-var count = 0
+// var currentTurn = 'X'
 var gameBoardSpaces = ["", "", "", "", "", "", "", "", "",]
-var gameOn = false
-var winningCombos = 
+var winningCombos =
 [
 [0, 1, 2],
 [3, 4, 5],
@@ -56,102 +61,64 @@ var winningCombos =
 
 // -------> functions <-------
 
-// function createGameGrid() {
-//     boxes.forEach(function(box){
-//         box.addEventListener('click', executeTurn)
-//     }
-// }
-// function displayOnClick() {
-//     boxes.forEach((box => box.addEventListener('click', () => {
-//     if (whosTurn === X) {
-//         whosTurn = "O"
-//         box.innerText = "X"
-//         box.disbaled = true
-//     } else {
-//         whosTurn = "0"
-//         box.InnerText = 'O'
-//         box.disbaled = true
-//     }
-//     })
-// }
-
-// startGame() 
-
-function startGame() {
-    gameOn = true
-    boxes.forEach(box => box.addEventListener('click', executeTurn))
-    console.log('hi')
+function clearBoard() {
+    gameBoardSpaces = ["", "", "", "", "", "", "", "", ""]
 }
-// // use with reset button as well
+// use with reset button as well
 
-function executeTurn() {
-    var boxID = event.target.id
-    if (isBoxOpen === true && gameOn === true) {
-        box.innerHTML = "X"
+function renderTurn() {
+    if (box.innerText === "") {
+        box.innerText = currentTurn
+    } else {
+        return
     }
 }
-function isBoxOpen() {
-    if (boxes.innerText === 'X' || boxes.innerText === 'O') {
-        return false;
-    }
-    return true;
+
+function changePlayer() {
+    currentTurn === "X" ? "O" : "X"
 }
 
-// function changePlayer() { // render?
-    // var currentPlayer = new Player(id, symbol, wins)
-    //  currentPlayer = 'X' ? 'O' : 'X';
+// function checkForWinner() {
 
 // }
-    //if the tile is clicked on and is not already marked 
-    // should change inner text of current player
-    // add symbol for player. Check for winner, if no winner
-    // change player if there is a winner/draw execute banner 
-    // timeout and reset
-
+// Check for winner, if no winner
+//     change player if there is a winner/draw execute banner
+//     timeout and reset
 // start with X, first tile is X
 // 0 is second
 // event listeners on all tiles?
 // input on tiles?
-
 // if winning three positions are marked 'true' x or o wins
 // function checkForWinner() {
-
 // }
-//ALSO IN GAME CLASS
+// ALSO IN GAME CLASS
 // when there is a winner we want the score to go up 1 on winner side
 // increaseWins(player) {
 //     player.wins += 1
 // }
-//IN PLAYER CLASS
+// IN PLAYER CLASS
 // we also will need banner to pop up to say who wins
 // change "It's your turn" to WINS
-// have pop up that announces winner 
+// have pop up that announces winner
 // function winningBanner() {
-
 // timeOut()
 // }
-//Player 1, YOU WIN
-//PLAYER 2, YOU WIN
+// Player 1, YOU WIN
+// PLAYER 2, YOU WIN
 // function announceWinner() {
-
 // }
-//DRAW
-//DRAW scores do not change
+// DRAW
+// DRAW scores do not change
 // function announceDraw() {
 //     count += 1;
 // (if count === 9) {
-
 // }
-
 // }
-
 // function drawBanner() {
-
 // timeOut()
 // }
 // No Winner! Try Again
 // function timeOut() {
 //     setTimeout(startGame, 3000)
 // }
-//time out to reset page 
-
+// time out to reset page
