@@ -1,7 +1,8 @@
 class Player {
-    constructor(id, symbol, wins) {
-        this.id = player1
-        this.symbol = "X"
+    constructor(id, symbol) {
+        this.id = id
+        this.boardPosition = []
+        this.symbol = symbol 
         this.wins = 0
     }
     increaseWins() {
