@@ -14,12 +14,21 @@ resetButton.addEventListener('click', clearBoard);
 
 boxes.forEach(function(box){
     box.addEventListener('click', function() {
-    
+        if (box.innerText === "")
+            box.innerText = currentTurn
+            currentTurn = currentTurn === "X" ? "O" : "X"
+            console.log(currentTurn)
+
+
     renderTurn();
-    changePlayer();
+    console.log('turns', turns)
+    announceDraw();
+    checkForWinner();
+    winnerFound === true ? announceWinner() : changePlayer();
+    checkForWinner()
     console.log('hello')
     })
-
+ })
 
 // ------> global variables <------
 var turns = 0
@@ -37,34 +46,27 @@ var winningCombos =
 [0, 4, 8],
 [2, 4, 6],
 ]
-for (var i = 0; i < winningCombos.length; i++) {
-    var winningTurn = winningCombos[i]
-    var firstBox = gameBoardSpaces[winningCombos[0]]
-    var secondBox = gameBoardSpaces[winningCombos[1]]
-    var thirdBox = gameBoardSpaces[winningCombos[2]]
 // -------> functions <-------
 
 function clearBoard() {
     gameBoardSpaces = ["", "", "", "", "", "", "", "", ""]
+    playerBanner.innerHTML = `PLAYER ${currentTurn}`
+    announceBanner.innerHTML = "YOUR TURN!"
 }
-// use with reset button as well
 
 function renderTurn() {
     turns += 1;
-    if (box.innerText === "") {
-        box.innerText = currentTurn
-    } else {
-        return
-    }
-}
-
-function changePlayer() {
-   currentTurn = currentTurn === "X" ? "O" : "X"
-   playerBanner.innerHTML = `PLAYER ${currentTurn}`
-   announceBanner.innerHTML = "YOUR TURN!"
+    playerBanner.innerHTML = `PLAYER ${currentTurn}`
+    announceBanner.innerHTML = "YOUR TURN!"
 }
 
 function checkForWinner() {
+    for (var i = 0; i < winningCombos.length; i++) {
+        var winner = winningCombos[i]
+        var firstBox = gameBoardSpaces[winningCombos[0]]
+        var secondBox = gameBoardSpaces[winningCombos[1]]
+        var thirdBox = gameBoardSpaces[winningCombos[2]]
+    }
     if (firstBox === secondBox && secondBox === thirdBox) {
         winnerFound = true
     }
@@ -93,5 +95,5 @@ function announceDraw() {
 
 function timeOut() {
     setTimeout(clearBoard, 3000)
-    alert(`Player ${currentTurn}, You're The Winner!`)
+    // alert(`Player ${currentTurn}, You're The Winner!`)
 }
