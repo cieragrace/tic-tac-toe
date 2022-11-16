@@ -13,12 +13,9 @@ class Game {
     changeTurns() {
     if (this.currentTurn === "X") {
         this.currentTurn = "O"
-        this.turns += 1
     } else {
         this.currentTurn = "X"
-        this.turns += 1
-    }
-        console.log(this.turns)
+        }
     }
 
     checkForWinner(player) {
@@ -35,10 +32,9 @@ class Game {
         for (var i = 0; i < winningCombos.length; i++) {
         if (player.boardPosition.includes(winningCombos[i][0]) && player.boardPosition.includes(winningCombos[i][1]) && player.boardPosition.includes(winningCombos[i][2])) {
             player.wins += 1
-            console.log(player.wins)
             this.winnerFound = true
             this.isGameLive = false
-        }
+            }
         }
     }
 
@@ -49,19 +45,16 @@ class Game {
             console.log('DRAW') 
         }
     }
-}
-    // announceWinner() {
-    //     if (winnerFound === true) {
-    //         playerBanner.innerHTML = `PLAYER ${currentTurn}`
-    //         announceBanner.innerHTML = "YOU WIN!"
-    //         // increaseWins()
-    //     }
-    // }
 
-    // clearBoard() {
-    //     this.currentTurn = "X"
-    //     this.gameBoardSpaces = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    //    }
+    updateBoard(id) {
+        this.gameBoardSpaces[id] = this.currentTurn
+    }
+
+    resetBoard() {
+        this.gameBoardSpaces = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        this.isGameLive = false
+       }
+}
 
     // timeOut() {
     //     setTimeout(clearBoard, 3000)
