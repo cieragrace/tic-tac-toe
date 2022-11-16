@@ -7,13 +7,8 @@ var resetButton = document.querySelector('.resetButton')
 var gridContainer = document.querySelector('.grid-container')
 var boxes = document.querySelectorAll('.box')
 boxes = Array.from(boxes)
-
 // -------> event listeners <-------
-// window.addEventListener('load', newGame);
-resetButton.addEventListener('click', clearBoard);
-
 gridContainer.addEventListener('click', renderTurn)  
-
 
 boxes.forEach(function(box){
     box.addEventListener('click', function() {
@@ -34,29 +29,10 @@ boxes.forEach(function(box){
 
     function clearBoard() {
         ticTacToe.resetBoard()
+        boxes.innertext = ""
         playerBanner.innerHTML = `PLAYER ${ticTacToe.currentTurn}`
         announceBanner.innerHTML = "YOUR TURN!"
-        boxes.innerText = ""
     }
-
-    // function renderBoard()
-    // function displayMoves() {
-    //     for (var i = 0; i < ticTacToe.gameBoardSpaces.length; i++) {
-    //     if (ticTacToe.gameBoardSpaces[i] === 0) {
-    //         boxes[i].innerText = ""
-    //     } 
-    //     if (boxes[i].innerHTML === "X" || boxes[i].innerHTML === "O") {
-    //         boxes[i].classList.add('disabled')
-    //         }
-    //     }
-    // }
-    // function newGame(player) {
-    // ticTacToe.currentTurn === "X"
-    // ticTacToe.clearBoard()
-    // ticTacToe.player.gameBoardSpaces = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    // playerBanner.innerHTML = `PLAYER ${ticTacToe.currentTurn}`
-    // announceBanner.innerHTML = "YOUR TURN!"
-
 
     function renderTurn(event) {
         ticTacToe.updateBoard(parseInt(event.target.dataset.section))
@@ -64,12 +40,15 @@ boxes.forEach(function(box){
         ticTacToe.checkForWinner(ticTacToe.player2)
         if (ticTacToe.winnerFound) {
             announceWinner()
-            console.log('winner')
+            timeOut()
+            clearBoard()
             return
         }
         ticTacToe.checkForDraw()
         if (ticTacToe.draw) {
             announceDraw()
+            timeOut()
+            clearBoard()
             return
         }
         ticTacToe.changeTurns()
@@ -78,8 +57,6 @@ boxes.forEach(function(box){
         announceBanner.innerHTML = "YOUR TURN!"
         ticTacToe.gameBoardSpaces[parseInt(event.target.dataset.section)] = 1
         ticTacToe.player1.boardPosition.push(parseInt(event.target.dataset.section))
-        console.log(event.target.dataset.section)
-        // ticTacToe.changeTurns()
         return
         }
         if (ticTacToe.currentTurn === "O") {
@@ -87,13 +64,8 @@ boxes.forEach(function(box){
         announceBanner.innerHTML = "YOUR TURN!"
         ticTacToe.gameBoardSpaces[parseInt(event.target.dataset.section)] = 2
         ticTacToe.player2.boardPosition.push(parseInt(event.target.dataset.section))
-        console.log(ticTacToe.currentTurn)
-        // ticTacToe.checkForWinner(ticTacToe.player2)
-        // ticTacToe.changeTurns()
         return
         }
-        // if (ticTacToe.winnerFound === true) {
-        //     announceWinner()
     }
 
     function announceWinner() {
@@ -113,7 +85,7 @@ boxes.forEach(function(box){
         }
     }
    }
-// function timeOut() {
-//     setTimeout(clearBoard, 3000)
-//     // alert(`Player ${currentTurn}, You're The Winner!`)
-// }
+function timeOut() {
+    setTimeout(clearBoard, 3000)
+    alert("newGame")
+}
