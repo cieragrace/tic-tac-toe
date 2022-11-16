@@ -54,9 +54,5 @@ class Game {
         this.gameBoardSpaces = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         this.isGameLive = false
        }
-}
 
-    // timeOut() {
-    //     setTimeout(clearBoard, 3000)
-    //     // alert(`Player ${currentTurn}, You're The Winner!`)
-    //     }
+    }
