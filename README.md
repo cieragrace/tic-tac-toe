@@ -19,6 +19,7 @@ To view my project:
 3. try it out! have some fun
 
 ### Preview of App:
+<img width="943" alt="image" src="https://user-images.githubusercontent.com/113853138/202068024-2bccb370-41a0-42cd-a9f6-3f44b0f975fd.png">
 
 
 ### Context:
