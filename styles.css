@@ -1,10 +1,9 @@
 * {
-  /* outline: 3px solid white; */
   font-family: 'press_start_2pregular';
 }
 
 body {
-  background-image: url(file:///Users/cieragrace/Desktop/tictac6.webp);
+  background-image: url(./assets/backgroundSUN.png);
   background-size: 100%;
   margin: 0;
   width: 100%;
@@ -27,14 +26,20 @@ header {
 }
 
 .player {
-  font-size: 50px;
+  font-size: 40px;
   color: #ff00ff;
   height: 75px;
   width: 300px;
   margin: 0;
 }
 
-.player-score {
+.player1score {
+  font-size: 60px;
+  color: #D8BFD8;
+  width: 300px;
+}
+
+.player2score {
   font-size: 60px;
   color: #D8BFD8;
   width: 300px;
@@ -87,4 +92,6 @@ main {
   curser:pointer
 }
 
-
+.disabled {
+  pointer-events: none;
+}
